@@ -6,7 +6,8 @@ const Account = () => {
         email: "",
         fullName: "",
         joinDate: "",
-        accountType: ""
+        accountType: "",
+        score: 0
     });
 
     React.useEffect(() => {
@@ -20,7 +21,8 @@ const Account = () => {
                     email: data.email,
                     fullName: data.full_name,
                     joinDate: data.created_at,
-                    accountType: data.role
+                    accountType: data.role,
+                    score: data.score
                 });
             } catch (error) {
                 console.error('Error fetching user data:', error);
@@ -67,6 +69,12 @@ const Account = () => {
                         <label className="block text-sm font-medium text-gray-700">Account Type</label>
                         <p className="mt-1 px-3 py-2 block w-full border border-gray-300 rounded-md bg-gray-50">
                             {accountInfo.accountType}
+                        </p>
+                    </div>
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium text-gray-700">Score</label>
+                        <p className="mt-1 px-3 py-2 block w-full border border-gray-300 rounded-md bg-gray-50">
+                            {accountInfo.score}
                         </p>
                     </div>
                 </div>
